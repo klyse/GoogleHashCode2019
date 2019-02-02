@@ -1,4 +1,5 @@
 ﻿using System;
+using GoogleHashCode2018.Model;
 
 namespace GoogleHashCode2018
 {
@@ -9,7 +10,7 @@ namespace GoogleHashCode2018
 			Console.WriteLine("Hello World!");
 
 
-
+			var pizza = new Pizza().Parse(EnvironmentConstants.InputPath + "/a_example.in");
 
 			Console.ReadLine();
 		}
