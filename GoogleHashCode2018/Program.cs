@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using GoogleHashCode2018.Model;
 
 namespace GoogleHashCode2018
@@ -7,12 +8,10 @@ namespace GoogleHashCode2018
 	{
 		static void Main(string[] args)
 		{
-			Console.WriteLine("Hello World!");
+            var pizzaInput = new PizzaInput().Load(Path.Combine(EnvironmentConstants.InputPath, "a_example.in"));
 
-
-			var pizza = new Pizza().Parse(EnvironmentConstants.InputPath + "/a_example.in");
-
-			Console.ReadLine();
+            Console.WriteLine($"{pizzaInput.MaxCells} / {pizzaInput.MinIngredients}");
+            Console.ReadLine();
 		}
 	}
 }
