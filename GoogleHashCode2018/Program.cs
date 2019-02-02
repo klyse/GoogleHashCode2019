@@ -10,6 +10,8 @@ namespace GoogleHashCode2018
 
 
 
+
+			Console.ReadLine();
 		}
 	}
 }
