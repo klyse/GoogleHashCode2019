@@ -8,6 +8,8 @@ namespace GoogleHashCode2018.Base
 {
     public abstract class Input<T>
     {
+        public string FileName { get; private set; }
+
         protected string[] ParseParamLineString(string line)
         {
             return line.Split(' ');
@@ -19,6 +21,7 @@ namespace GoogleHashCode2018.Base
 
         public T Load(string filePath)
         {
+            FileName = Path.GetFileName(filePath);
             var lines = File.ReadAllLines(filePath);
             return Parse(lines);
         }
