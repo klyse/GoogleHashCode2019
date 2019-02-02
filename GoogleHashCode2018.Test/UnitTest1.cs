@@ -1,15 +1,18 @@
 using System.IO;
-using System.Reflection;
-using Microsoft.VisualBasic;
 using NUnit.Framework;
 
 namespace GoogleHashCode2018.Test
 {
-	public class Tests
+	public class EnvironmentTests
 	{
-		[SetUp]
+		[OneTimeSetUp]
 		public void Setup()
 		{
+			if (!string.IsNullOrWhiteSpace(EnvironmentConstants.OutputPath))
+				Directory.CreateDirectory(EnvironmentConstants.OutputPath);
+
+			if (!string.IsNullOrWhiteSpace(EnvironmentConstants.InputPath))
+				Directory.CreateDirectory(EnvironmentConstants.InputPath);
 		}
 
 
@@ -17,17 +20,6 @@ namespace GoogleHashCode2018.Test
 		public void CheckIfEnvironmentVariableIsSet()
 		{
 			Assert.IsNotNull(EnvironmentConstants.DataPath);
-		}
-
-		[Test]
-		public void Test1()
-		{
-			var x = EnvironmentConstants.DataPath;
-			var readAllLines = File.ReadAllLines(EnvironmentConstants.DataPath + "/input/a_example.in");
-
-			File.WriteAllLines(EnvironmentConstants.DataPath + "/output/a", readAllLines);
-
-			Assert.Pass();
 		}
 	}
 }
