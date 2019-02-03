@@ -9,7 +9,7 @@ namespace GoogleHashCode2018.Base
         protected I Input;
         protected O Output;
 
-        protected abstract O Solve();
+        protected abstract void Solve();
 
         public O Execute(I input)
         {
