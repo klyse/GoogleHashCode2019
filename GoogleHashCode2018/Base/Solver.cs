@@ -4,13 +4,20 @@ using System.Text;
 
 namespace GoogleHashCode2018.Base
 {
-    public abstract class Solver<I, O> where O : Output
+    public abstract class Solver<I, O> where O : Output, new()
     {
-        protected abstract O Solve(I input);
+        protected I Input;
+        protected O Output;
+
+        protected abstract O Solve();
 
         public O Execute(I input)
         {
-            return Solve(input);
+            Input = input;
+            Output = new O();
+            Solve();
+
+            return Output;
         }
     }
 }
