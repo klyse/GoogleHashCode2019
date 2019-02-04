@@ -8,6 +8,8 @@ namespace GoogleHashCode2018.Algorithms
 {
     public class PizzaSolver1 : Solver<PizzaInput, PizzaOutput>
     {
+        bool[,] Used;
+
         private (int tomatoCount, int mushroomCount) GetCellTypeCount()
         {
             int tomatoCount = 0;
@@ -32,9 +34,23 @@ namespace GoogleHashCode2018.Algorithms
 
         protected override void Solve()
         {
+            Used = new bool[Input.Rows, Input.Columns];
+
             var rareCellType = FindCellTypeLowerCount();
 
+            for (int r = 0; r < Input.Rows; r++)
+                for (int c = 0; c < Input.Columns; c++)
+                    // Found the first rare item, start a new slice
+                    if (Input.Matrix[r, c] == rareCellType)
+                    {
+                        var slice = new PizzaOutput.Slice { FromRow = r, ToRow = r, FromColumn = c, ToColumn = c };
+                    }
+            {
 
+            }
+            {
+
+            }
 
         }
     }
