@@ -1,10 +1,8 @@
-﻿using GoogleHashCode2018.Base;
-using System;
-using System.Collections.Generic;
-using System.IO;
+﻿using System.Collections.Generic;
 using System.Text;
+using GoogleHashCode2019.Base;
 
-namespace GoogleHashCode2018.Model
+namespace GoogleHashCode2019.Model
 {
     public class PizzaOutput : Output
     {

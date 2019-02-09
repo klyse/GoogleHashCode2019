@@ -1,9 +1,8 @@
-﻿using System;
-using System.IO;
-using GoogleHashCode2018.Algorithms;
-using GoogleHashCode2018.Model;
+﻿using System.IO;
+using GoogleHashCode2019.Algorithms;
+using GoogleHashCode2019.Model;
 
-namespace GoogleHashCode2018
+namespace GoogleHashCode2019
 {
 	public class Program
 	{

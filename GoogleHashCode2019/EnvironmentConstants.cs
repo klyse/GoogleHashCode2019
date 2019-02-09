@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 
-namespace GoogleHashCode2018
+namespace GoogleHashCode2019
 {
 	public static class EnvironmentConstants
 	{

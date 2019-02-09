@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\GoogleHashCode2018\GoogleHashCode2018.csproj" />
+    <ProjectReference Include="..\GoogleHashCode2019\GoogleHashCode2019.csproj" />
   </ItemGroup>
 
 </Project>

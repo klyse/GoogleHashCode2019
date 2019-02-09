@@ -1,7 +1,7 @@
 using System.IO;
 using NUnit.Framework;
 
-namespace GoogleHashCode2018.Test
+namespace GoogleHashCode2019.Test
 {
 	public class EnvironmentTests
 	{

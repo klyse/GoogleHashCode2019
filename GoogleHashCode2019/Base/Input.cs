@@ -1,10 +1,7 @@
-﻿using System;
+﻿using System.IO;
 using System.Linq;
-using System.Collections.Generic;
-using System.Text;
-using System.IO;
 
-namespace GoogleHashCode2018.Base
+namespace GoogleHashCode2019.Base
 {
     public abstract class Input<T>
     {

@@ -1,8 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using GoogleHashCode2018.Base;
+﻿using System.Linq;
+using GoogleHashCode2019.Base;
 
-namespace GoogleHashCode2018.Model
+namespace GoogleHashCode2019.Model
 {
     public class PizzaInput : Input<PizzaInput>
 	{

@@ -1,10 +1,7 @@
-﻿using GoogleHashCode2018.Base;
-using GoogleHashCode2018.Model;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using GoogleHashCode2019.Base;
+using GoogleHashCode2019.Model;
 
-namespace GoogleHashCode2018.Algorithms
+namespace GoogleHashCode2019.Algorithms
 {
     public class PizzaSolver1 : Solver<PizzaInput, PizzaOutput>
     {
