@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using GoogleHashCode2019.Base;
+using NeoMatrix;
 
 namespace GoogleHashCode2019.Model
 {
@@ -11,24 +12,25 @@ namespace GoogleHashCode2019.Model
 			Mushroom
 		}
 
-		public int Columns { get; set; }
-		public int Rows { get; set; }
-
 		public int MinIngredients { get; set; }
 		public int MaxCells { get; set; }
 
-		public CellType[,] Matrix { get; set; }
+		public Matrix<CellType> Matrix { get; set; }
 
 		public override PizzaInput Parse(string[] input)
 		{
 			var descriptiveProps = ParseParamLineInt(input[0]);
 
-			Rows = descriptiveProps.ElementAt(0);
-			Columns = descriptiveProps.ElementAt(1);
+			var rows = descriptiveProps.ElementAt(0);
+			var columns = descriptiveProps.ElementAt(1);
 			MinIngredients = descriptiveProps.ElementAt(2);
 			MaxCells = descriptiveProps.ElementAt(3);
 
-			Matrix = new CellType[Rows, Columns];
+			Matrix = new Matrix<CellType>(rows, columns);
+
+			// set parameters for a valid slice
+			PizzaOutput.Slice.MinIngredients = MinIngredients;
+			PizzaOutput.Slice.MaxCells = MaxCells;
 
 			for (var i = 1; i < input.Length; i++)
 			{
