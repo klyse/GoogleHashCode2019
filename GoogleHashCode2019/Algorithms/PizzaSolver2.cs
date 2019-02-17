@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
+﻿using System.Linq;
 using GoogleHashCode2019.Base;
 using GoogleHashCode2019.Model;
 using NeoMatrix;
@@ -30,8 +28,8 @@ namespace GoogleHashCode2019.Algorithms
 				}
 			}
 
-			var slices = Output.Result.OrderByDescending(c => c.Score).ToList();
-
+			var slices = Output.Result.OrderByDescending(c => c.Score).Take(200000).ToList();
+			
 			Output.Result.Clear();
 
 			foreach (var slice in slices)

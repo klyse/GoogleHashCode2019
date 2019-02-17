@@ -8,7 +8,7 @@ namespace GoogleHashCode2019
 	{
 		static void Main()
 		{
-			var pizzaInput = new PizzaInput().Load(Path.Combine(EnvironmentConstants.InputPath, "c_medium.in"));
+			var pizzaInput = new PizzaInput().Load(Path.Combine(EnvironmentConstants.InputPath, "a_example.in"));
 
 			var pizzaOutput = new PizzaSolver2().Execute(pizzaInput);
 
