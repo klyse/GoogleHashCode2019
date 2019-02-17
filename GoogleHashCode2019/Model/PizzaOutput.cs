@@ -53,6 +53,11 @@ namespace GoogleHashCode2019.Model
 
 				return true;
 			}
+
+			public override string ToString()
+			{
+				return $"Score: {Score}, ({RowFrom},{ColumnFrom})/({RowTo},{ColumnTo})";
+			}
 		}
 
 		public readonly List<Slice> Result = new List<Slice>();
