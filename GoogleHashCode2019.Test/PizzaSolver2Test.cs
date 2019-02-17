@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using GoogleHashCode2019.Algorithms;
 using GoogleHashCode2019.Model;
 using NUnit.Framework;
@@ -19,6 +20,8 @@ namespace GoogleHashCode2019.Test
 			var pizzaOutput = new PizzaSolver2().Execute(pizzaInput);
 
 			pizzaOutput.Save(Path.Combine(EnvironmentConstants.OutputPath, "PizzaSolver2", pizzaInput.FileName));
+
+			Console.WriteLine($"Total Score: {pizzaOutput.TotalScore}");
 
 			Assert.Pass();
 		}

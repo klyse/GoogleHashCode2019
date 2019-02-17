@@ -55,13 +55,14 @@ namespace GoogleHashCode2019.Model
 			}
 		}
 
-		public List<Slice> Result = new List<Slice>();
+		public readonly List<Slice> Result = new List<Slice>();
+
+		public int TotalScore => Result.Sum(c => c.Score);
 
 		public void AddSlice(Slice slice)
 		{
 			Result.Add(slice);
 		}
-
 
 		protected override string BuildOutputString()
 		{
