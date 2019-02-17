@@ -9,16 +9,16 @@ namespace GoogleHashCode2019.Algorithms
 	{
 		protected override void Solve()
 		{
-			for (var x = 1; x < Input.MaxCells; ++x)
-			for (var y = 1; y < Input.MaxCells; ++y)
-			for (var i = 0; i < Input.Matrix.Rows - x + 1; ++i)
-			for (var j = 0; j < Input.Matrix.Columns - y + 1; ++j)
+			for (var height = 1; height < Input.MaxCells; ++height)
+			for (var width = 1; width < Input.MaxCells; ++width)
+			for (var i = 0; i <= Input.Matrix.Rows - height; ++i)
+			for (var j = 0; j <= Input.Matrix.Columns - width; ++j)
 			{
-				if (x * y > Input.MaxCells ||
-					x * y * 2 < Input.MinIngredients)
+				if (height * width > Input.MaxCells ||
+					height * width < Input.MinIngredients * 2)
 					continue;
 
-				var box = Input.Matrix.GetFromRegion(Region.FromTopLeft(i, j, x, y));
+				var box = Input.Matrix.GetFromRegion(Region.FromTopLeft(i, j, height, width));
 
 				var slice = PizzaOutput.Slice.CreateSlice(i, j, box);
 
