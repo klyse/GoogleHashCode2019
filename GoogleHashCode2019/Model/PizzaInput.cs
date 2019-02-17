@@ -3,9 +3,13 @@ using GoogleHashCode2019.Base;
 
 namespace GoogleHashCode2019.Model
 {
-    public class PizzaInput : Input<PizzaInput>
+	public class PizzaInput : Input<PizzaInput>
 	{
-        public enum CellType { Tomato, Mushroom }
+		public enum CellType
+		{
+			Tomato,
+			Mushroom
+		}
 
 		public int Columns { get; set; }
 		public int Rows { get; set; }
@@ -24,20 +28,20 @@ namespace GoogleHashCode2019.Model
 			MinIngredients = descriptiveProps.ElementAt(2);
 			MaxCells = descriptiveProps.ElementAt(3);
 
-            Matrix = new CellType[Rows, Columns];
+			Matrix = new CellType[Rows, Columns];
 
-            for (var i = 1; i < input.Length; i++)
-            {
-                var row = i - 1;
-                var rowData = input[i];
-                for (var j = 0; j < rowData.Length; j++)
-                    if (rowData[j] == 'T')
-                        Matrix[row, j] = CellType.Tomato;
-                    else
-                        Matrix[row, j] = CellType.Mushroom;
-            }
+			for (var i = 1; i < input.Length; i++)
+			{
+				var row = i - 1;
+				var rowData = input[i];
+				for (var j = 0; j < rowData.Length; j++)
+					if (rowData[j] == 'T')
+						Matrix[row, j] = CellType.Tomato;
+					else
+						Matrix[row, j] = CellType.Mushroom;
+			}
 
-            return this;
-        }
+			return this;
+		}
 	}
 }

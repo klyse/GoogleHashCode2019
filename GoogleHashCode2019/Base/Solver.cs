@@ -1,19 +1,19 @@
 ﻿namespace GoogleHashCode2019.Base
 {
-    public abstract class Solver<I, O> where O : Output, new()
-    {
-        protected I Input;
-        protected O Output;
+	public abstract class Solver<TInput, TOutput> where TOutput : Output, new()
+	{
+		protected TInput Input;
+		protected TOutput Output;
 
-        protected abstract void Solve();
+		protected abstract void Solve();
 
-        public O Execute(I input)
-        {
-            Input = input;
-            Output = new O();
-            Solve();
+		public TOutput Execute(TInput input)
+		{
+			Input = input;
+			Output = new TOutput();
+			Solve();
 
-            return Output;
-        }
-    }
+			return Output;
+		}
+	}
 }

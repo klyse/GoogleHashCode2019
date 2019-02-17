@@ -9,6 +9,5 @@ namespace GoogleHashCode2019
 		public static string DataPath => Environment.GetEnvironmentVariable(EnvironmentVariable);
 		public static string InputPath => Path.Combine(DataPath, "Input");
 		public static string OutputPath => Path.Combine(DataPath, "Output");
-
-    }
+	}
 }

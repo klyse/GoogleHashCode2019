@@ -3,23 +3,23 @@ using System.IO;
 
 namespace GoogleHashCode2019.Base
 {
-    public abstract class Output
-    {
-        protected string FixFileNameExt(string filePath)
-        {
-            if (string.Compare(Path.GetExtension(filePath), ".in", true) == 0)
-                return Path.ChangeExtension(filePath, ".out");
+	public abstract class Output
+	{
+		protected string FixFileNameExt(string filePath)
+		{
+			if (string.Equals(Path.GetExtension(filePath), ".in", StringComparison.CurrentCultureIgnoreCase))
+				return Path.ChangeExtension(filePath, ".out");
 
-            return filePath;
-        }
+			return filePath;
+		}
 
-        public void Save(String filePath)
-        {
-            filePath = FixFileNameExt(filePath);
+		public void Save(string filePath)
+		{
+			filePath = FixFileNameExt(filePath);
 
-            File.WriteAllText(filePath, BuildOutputString());
-        }
+			File.WriteAllText(filePath, BuildOutputString());
+		}
 
-        protected abstract string BuildOutputString();
-    }
+		protected abstract string BuildOutputString();
+	}
 }
