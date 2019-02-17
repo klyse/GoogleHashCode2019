@@ -16,27 +16,27 @@ namespace GoogleHashCode2019.Model
 
 			public int FromRow { get; set; }
 			public int FromColumn { get; set; }
-			public int ToRow => FromRow + SliceMatrix.Rows;
-			public int ToColumn => FromColumn + SliceMatrix.Columns;
+			public int ToRow => FromRow + SliceMatrix.Rows - 1;
+			public int ToColumn => FromColumn + SliceMatrix.Columns - 1;
 
-			public int Score => SliceMatrix.Columns * SliceMatrix.Rows;
+			public int Score => SliceMatrix.TotalCount;
 
 			public Matrix<PizzaInput.CellType> SliceMatrix { get; set; }
 
-			public static Slice CreateSlice(int row, int column, Matrix<PizzaInput.CellType> mat)
+			public static Slice CreateSlice(int fromRow, int fromColumn, Matrix<PizzaInput.CellType> mat)
 			{
 				var slice = new Slice();
 
 				slice.SliceMatrix = mat;
-				slice.FromRow = row;
-				slice.FromColumn = column;
+				slice.FromRow = fromRow;
+				slice.FromColumn = fromColumn;
 
 				return slice;
 			}
 
 			public bool IsValid()
 			{
-				var totalCount = SliceMatrix.Columns * SliceMatrix.Rows;
+				var totalCount = SliceMatrix.TotalCount;
 				if (totalCount > MaxCells)
 					return false;
 
@@ -54,9 +54,6 @@ namespace GoogleHashCode2019.Model
 
 		public void AddSlice(Slice slice)
 		{
-			if (!slice.IsValid())
-				throw new Exception("Slice is not valid");
-
 			Result.Add(slice);
 		}
 

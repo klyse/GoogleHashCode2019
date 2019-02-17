@@ -18,7 +18,7 @@ namespace GoogleHashCode2019.Test
 
 			var pizzaOutput = new PizzaSolver2().Execute(pizzaInput);
 
-			pizzaOutput.Save(Path.Combine(EnvironmentConstants.OutputPath, "PizzaSolver2" , pizzaInput.FileName));
+			pizzaOutput.Save(Path.Combine(EnvironmentConstants.OutputPath, "PizzaSolver2", pizzaInput.FileName));
 
 			Assert.Pass();
 		}
