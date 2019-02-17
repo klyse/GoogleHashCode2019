@@ -15,6 +15,9 @@ namespace GoogleHashCode2019.Base
 
 		public void Save(string filePath)
 		{
+			var directoryName = Path.GetDirectoryName(filePath);
+			Directory.CreateDirectory(directoryName);
+
 			filePath = FixFileNameExt(filePath);
 
 			File.WriteAllText(filePath, BuildOutputString());

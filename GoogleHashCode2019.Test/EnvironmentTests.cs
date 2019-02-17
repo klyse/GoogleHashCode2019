@@ -15,7 +15,6 @@ namespace GoogleHashCode2019.Test
 				Directory.CreateDirectory(EnvironmentConstants.InputPath);
 		}
 
-
 		[Test]
 		public void CheckIfEnvironmentVariableIsSet()
 		{

@@ -60,6 +60,7 @@ namespace GoogleHashCode2019.Model
 			Result.Add(slice);
 		}
 
+
 		protected override string BuildOutputString()
 		{
 			var output = new StringBuilder();

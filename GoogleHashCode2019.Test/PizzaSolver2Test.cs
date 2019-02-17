@@ -5,20 +5,20 @@ using NUnit.Framework;
 
 namespace GoogleHashCode2019.Test
 {
-	public class PizzaSolver1Test
+	public class PizzaSolver2Test
 	{
 		[Test]
 		[TestCase("a_example.in")]
 		[TestCase("b_small.in")]
 		[TestCase("c_medium.in")]
 		[TestCase("d_big.in")]
-		public void PizzaSolver1(string example)
+		public void PizzaSolver2(string example)
 		{
 			var pizzaInput = new PizzaInput().Load(Path.Combine(EnvironmentConstants.InputPath, example));
 
-			var pizzaOutput = new PizzaSolver1().Execute(pizzaInput);
+			var pizzaOutput = new PizzaSolver2().Execute(pizzaInput);
 
-			pizzaOutput.Save(Path.Combine(EnvironmentConstants.OutputPath, "PizzaSolver1" , pizzaInput.FileName));
+			pizzaOutput.Save(Path.Combine(EnvironmentConstants.OutputPath, "PizzaSolver2" , pizzaInput.FileName));
 
 			Assert.Pass();
 		}
