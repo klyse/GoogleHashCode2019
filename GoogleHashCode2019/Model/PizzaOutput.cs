@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using GoogleHashCode2019.Base;
@@ -19,6 +20,8 @@ namespace GoogleHashCode2019.Model
 			public int RowTo => RowFrom + SliceMatrix.Rows - 1;
 			public int ColumnTo => ColumnFrom + SliceMatrix.Columns - 1;
 
+			public Rectangle Rect { get; private set; }
+
 			public int Score => SliceMatrix.TotalCount;
 
 			public Matrix<PizzaInput.CellType> SliceMatrix { get; set; }
@@ -30,6 +33,8 @@ namespace GoogleHashCode2019.Model
 				slice.SliceMatrix = mat;
 				slice.RowFrom = fromRow;
 				slice.ColumnFrom = fromColumn;
+
+				slice.Rect = new Rectangle(fromColumn, fromRow, mat.Columns, mat.Rows);
 
 				return slice;
 			}
@@ -50,7 +55,7 @@ namespace GoogleHashCode2019.Model
 			}
 		}
 
-		public readonly List<Slice> Result = new List<Slice>();
+		public List<Slice> Result = new List<Slice>();
 
 		public void AddSlice(Slice slice)
 		{
