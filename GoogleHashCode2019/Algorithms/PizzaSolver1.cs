@@ -24,7 +24,7 @@ namespace GoogleHashCode2019.Algorithms
 				// Found the first rare item, start a new slice
 				if (Input.Matrix[r, c] == rareCellType)
 				{
-					//var slice = new PizzaOutput.Slice {FromRow = r, ToRow = r, FromColumn = c, ToColumn = c};
+					//var slice = new PizzaOutput.Slice {RowFrom = r, RowTo = r, ColumnFrom = c, ColumnTo = c};
 				}
 			}
 		}

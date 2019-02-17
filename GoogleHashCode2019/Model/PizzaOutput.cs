@@ -14,10 +14,10 @@ namespace GoogleHashCode2019.Model
 			public static int MinIngredients { get; set; }
 			public static int MaxCells { get; set; }
 
-			public int FromRow { get; set; }
-			public int FromColumn { get; set; }
-			public int ToRow => FromRow + SliceMatrix.Rows - 1;
-			public int ToColumn => FromColumn + SliceMatrix.Columns - 1;
+			public int RowFrom { get; set; }
+			public int ColumnFrom { get; set; }
+			public int RowTo => RowFrom + SliceMatrix.Rows - 1;
+			public int ColumnTo => ColumnFrom + SliceMatrix.Columns - 1;
 
 			public int Score => SliceMatrix.TotalCount;
 
@@ -28,8 +28,8 @@ namespace GoogleHashCode2019.Model
 				var slice = new Slice();
 
 				slice.SliceMatrix = mat;
-				slice.FromRow = fromRow;
-				slice.FromColumn = fromColumn;
+				slice.RowFrom = fromRow;
+				slice.ColumnFrom = fromColumn;
 
 				return slice;
 			}
@@ -63,7 +63,7 @@ namespace GoogleHashCode2019.Model
 			var output = new StringBuilder();
 			output.AppendLine($"{Result.Count}");
 			foreach (var item in Result)
-				output.AppendLine($"{item.FromRow} {item.ToRow} {item.FromColumn} {item.ToColumn}");
+				output.AppendLine($"{item.RowFrom} {item.ColumnFrom} {item.RowTo} {item.ColumnTo}");
 
 			return output.ToString();
 		}
