@@ -43,6 +43,9 @@ namespace GoogleHashCode2019.Model
 						Matrix[row, j] = CellType.Mushroom;
 			}
 
+			PizzaOutput.Slice.TotalTomatoes = Matrix.GetFlat().Count(c => c == CellType.Tomato);
+			PizzaOutput.Slice.TotalMushrooms = Matrix.TotalCount - PizzaOutput.Slice.TotalTomatoes;
+
 			return this;
 		}
 	}

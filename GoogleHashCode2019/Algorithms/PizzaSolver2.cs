@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using GoogleHashCode2019.Base;
 using GoogleHashCode2019.Model;
 using NeoMatrix;
@@ -28,16 +28,29 @@ namespace GoogleHashCode2019.Algorithms
 				}
 			}
 
-			var slices = Output.Result.OrderByDescending(c => c.Score).Take(200000).ToList();
-			
+			var slices = Output.Result.OrderByDescending(c => c.Score).ToList();
+
 			Output.Result.Clear();
+
+			var occupiedFields = new Matrix<bool>(Input.Matrix.Rows, Input.Matrix.Columns);
 
 			foreach (var slice in slices)
 			{
-				if (!Output.Result.Any(c => c.Rect.IntersectsWith(slice.Rect)))
+				var found = false;
+				for (var i = slice.Rect.Top; i < slice.Rect.Bottom && !found; ++i)
+				for (var j = slice.Rect.Left; j < slice.Rect.Right && !found; ++j)
 				{
-					Output.AddSlice(slice);
+					if (occupiedFields[i, j])
+					{
+						found = true;
+						continue;
+					}
+
+					occupiedFields[i, j] = true;
 				}
+
+				if (!found)
+					Output.AddSlice(slice);
 			}
 		}
 	}

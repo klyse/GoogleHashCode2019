@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using GoogleHashCode2019.Algorithms;
 using GoogleHashCode2019.Model;

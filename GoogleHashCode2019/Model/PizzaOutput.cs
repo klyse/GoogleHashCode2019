@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -15,10 +14,16 @@ namespace GoogleHashCode2019.Model
 			public static int MinIngredients { get; set; }
 			public static int MaxCells { get; set; }
 
+			public static int TotalTomatoes { get; set; }
+			public static int TotalMushrooms { get; set; }
+
 			public int RowFrom { get; set; }
 			public int ColumnFrom { get; set; }
 			public int RowTo => RowFrom + SliceMatrix.Rows - 1;
 			public int ColumnTo => ColumnFrom + SliceMatrix.Columns - 1;
+
+			public int Tomatoes { get; set; }
+			public int Mushrooms { get; set; }
 
 			public Rectangle Rect { get; private set; }
 
@@ -33,6 +38,9 @@ namespace GoogleHashCode2019.Model
 				slice.SliceMatrix = mat;
 				slice.RowFrom = fromRow;
 				slice.ColumnFrom = fromColumn;
+
+				slice.Tomatoes = slice.SliceMatrix.GetFlat().Count(c => c == PizzaInput.CellType.Tomato);
+				slice.Mushrooms = mat.TotalCount - slice.Tomatoes;
 
 				slice.Rect = new Rectangle(fromColumn, fromRow, mat.Columns, mat.Rows);
 
@@ -56,7 +64,7 @@ namespace GoogleHashCode2019.Model
 
 			public override string ToString()
 			{
-				return $"Score: {Score}, ({RowFrom},{ColumnFrom})/({RowTo},{ColumnTo})";
+				return $"SortScore: {Score}, ({RowFrom},{ColumnFrom})/({RowTo},{ColumnTo})";
 			}
 		}
 
