@@ -13,9 +13,12 @@ namespace GoogleHashCode2019.Algorithms
 		{
 			for (var x = Input.MinIngredients; x < Input.MaxCells; ++x)
 			for (var y = Input.MinIngredients; y < Input.MaxCells; ++y)
-			for (var i = 0; i < Input.Matrix.Rows - x; ++i)
-			for (var j = 0; j < Input.Matrix.Columns - y; ++j)
+			for (var i = 0; i < Input.Matrix.Rows - x + 1; ++i)
+			for (var j = 0; j < Input.Matrix.Columns - y + 1; ++j)
 			{
+				if (x * y > Input.MaxCells)
+					continue;
+
 				var box = Input.Matrix.GetFromRegion(Region.FromTopLeft(i, j, x, y));
 
 				var slice = PizzaOutput.Slice.CreateSlice(i, j, box);
