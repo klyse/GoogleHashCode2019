@@ -40,7 +40,7 @@ namespace GoogleHashCode2019.Model
 
 		public void AddPhoto(Photo photo)
 		{
-			if (AdditionalPhoto.Orientation == Orientation.Vertical &&
+			if (Orientation == Orientation.Vertical &&
 				photo.Orientation == Orientation.Vertical)
 			{
 				AdditionalPhoto = photo;
