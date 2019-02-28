@@ -48,9 +48,8 @@ namespace GoogleHashCode2019.Algorithms
 				var last = Work.Photos.Last();
 
 				var bestResult = new Tuple<int, Photo>(0, null);
-				bool foundAny = false;
 
-				for (var i = 1; i < Math.Min(10, outPics.Count) || (!foundAny && i < outPics.Count && i < 100); i++)
+				for (var i = 1; i < Math.Min(100, outPics.Count); i++)
 				{
 					var comp = outPics.ElementAt(i);
 					var score = last.GetScore(comp);
@@ -58,7 +57,6 @@ namespace GoogleHashCode2019.Algorithms
 					if (score > bestResult.Item1)
 					{
 						bestResult = new Tuple<int, Photo>(score, comp);
-						foundAny = true;
 					}
 				}
 
