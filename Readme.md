@@ -36,7 +36,7 @@ Example: `C:\Projects\GoogleHashCode2019\Environment`
 | big       | 800264 |
 | **TOTAL** | 845889 |
 
-The score can be checked in the unit test output.
+The score can be checked in the unit test output...
 
 ## Authors
 VolkmarR: [@VolkmarR](https://github.com/VolkmarR/)
