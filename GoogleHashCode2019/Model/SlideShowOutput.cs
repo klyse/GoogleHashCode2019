@@ -1,4 +1,6 @@
-﻿using GoogleHashCode2019.Base;
+﻿using System.Collections.Generic;
+using System.Text;
+using GoogleHashCode2019.Base;
 
 namespace GoogleHashCode2019.Model
 {
@@ -6,9 +8,19 @@ namespace GoogleHashCode2019.Model
 	{
 		public int TotalScore { get; set; }
 
+		public List<Photo> Photos { get; set; } = new List<Photo>();
+
 		protected override string BuildOutputString()
 		{
-			return "hallo";
+			var output = new StringBuilder();
+			output.AppendLine($"{Photos.Count}");
+
+			foreach (var photo in Photos)
+			{
+				output.Append(photo.Id);
+			}
+
+			return output.ToString();
 		}
 	}
 }
