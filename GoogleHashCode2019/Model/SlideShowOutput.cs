@@ -28,7 +28,7 @@ namespace GoogleHashCode2019.Model
 
 			foreach (var photo in Photos)
 			{
-				output.Append(photo.Id);
+				output.Append(photo.GetPhotoString());
 			}
 
 			return output.ToString();

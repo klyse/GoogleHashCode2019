@@ -13,9 +13,43 @@ namespace GoogleHashCode2019.Model
 
 	public class Photo
 	{
+		private HashSet<string> _tags = new HashSet<string>();
 		public int Id { get; set; }
 		public Orientation Orientation { get; set; }
-		public List<string> Tags { get; set; } = new List<string>();
+
+		public HashSet<string> Tags
+		{
+			get
+			{
+				var allTags = _tags;
+				if (AdditionalPhoto != null)
+				{
+					foreach (var additionalPhotoTag in AdditionalPhoto.Tags)
+					{
+						allTags.Add(additionalPhotoTag);
+					}
+				}
+
+				return allTags;
+			}
+			private set => _tags = value;
+		}
+
+		public Photo AdditionalPhoto { get; set; }
+		public bool HasAdditionalPhoto => AdditionalPhoto != null;
+
+		public void AddPhoto(Photo photo)
+		{
+			if (AdditionalPhoto.Orientation == Orientation.Vertical &&
+				photo.Orientation == Orientation.Vertical)
+			{
+				AdditionalPhoto = photo;
+			}
+			else
+			{
+				throw new Exception("Can not add a Horizontal photo.");
+			}
+		}
 
 		public static Photo CreatePhoto(string input, int id)
 		{
@@ -54,6 +88,14 @@ namespace GoogleHashCode2019.Model
 			var same = photo.Tags.Count - except1.Count;
 
 			return Math.Min(Math.Min(s1, s2), same);
+		}
+
+		public string GetPhotoString()
+		{
+			if (HasAdditionalPhoto)
+				return $"{Id} {AdditionalPhoto.Id}";
+
+			return $"{Id}";
 		}
 	}
 
