@@ -18,7 +18,7 @@ namespace GoogleHashCode2019.Test
 		{
 			var slideShowInput = new SlideShowInput().Load(Path.Combine(EnvironmentConstants.InputPath, example));
 
-			var slideShowOutput = new SlideShowSolver1().Execute(slideShowInput);
+			var slideShowOutput = new SlideShowSolver2().Execute(slideShowInput);
 
 			slideShowOutput.Save(Path.Combine(EnvironmentConstants.OutputPath, "SlideShowSolver2", slideShowInput.FileName));
 
