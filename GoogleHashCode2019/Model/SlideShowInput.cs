@@ -43,6 +43,18 @@ namespace GoogleHashCode2019.Model
 
 			return photo;
 		}
+
+		public int GetScore(Photo photo)
+		{
+			var except1 = photo.Tags.Except(Tags).ToList();
+			var except2 = Tags.Except(photo.Tags).ToList();
+
+			var s1 = except1.Count;
+			var s2 = except2.Count;
+			var same = photo.Tags.Count - except1.Count;
+
+			return Math.Min(Math.Min(s1, s2), same);
+		}
 	}
 
 	public class SlideShowInput : Input<SlideShowInput>
