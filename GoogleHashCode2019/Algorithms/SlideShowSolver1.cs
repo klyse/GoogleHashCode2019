@@ -11,14 +11,14 @@ namespace GoogleHashCode2019.Algorithms
 	{
 		private void CombineVertical()
 		{
-			var verticalPhotos = Input.Photos.Where(c => c.Orientation == Orientation.Vertical).ToList();
+			var verticalPhotos = Input.Photos.Where(c => c.Orientation == Orientation.Vertical).OrderByDescending(c => c.Tags.Count).ToList();
 			var combinedPhotos = new List<Photo>();
 
 
 			combinedPhotos.AddRange(Input.Photos.Where(c => c.Orientation == Orientation.Horizontal));
-			for (var i = 0; i < verticalPhotos.Count(); i += 2)
+			for (var i = 0; i < (verticalPhotos.Count + 1) / 2; i++)
 			{
-				verticalPhotos[i].AddPhoto(verticalPhotos[i + 1]);
+				verticalPhotos[i].AddPhoto(verticalPhotos[verticalPhotos.Count - i -1]);
 				combinedPhotos.Add(verticalPhotos[i]);
 			}
 
