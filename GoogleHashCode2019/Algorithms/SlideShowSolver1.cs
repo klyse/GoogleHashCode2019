@@ -7,6 +7,9 @@ namespace GoogleHashCode2019.Algorithms
 	{
 		protected override void Solve()
 		{
+			Output.Photos.Add(Photo.CreatePhoto("H 3 a b c", 0));
+			Output.Photos.Add(Photo.CreatePhoto("H 3 q b c", 0));
+			Output.Photos.Add(Photo.CreatePhoto("H 3 a b c", 0));
 		}
 	}
 }
