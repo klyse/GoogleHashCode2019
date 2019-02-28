@@ -90,6 +90,13 @@ namespace GoogleHashCode2019.Model
 			return Math.Min(Math.Min(s1, s2), same);
 		}
 
+		public int GetMaxScore(Photo photo)
+		{
+			var tagsCnt = Math.Min(photo.Tags.Count, Tags.Count);
+
+			return tagsCnt / 2;
+		}
+
 		public string GetPhotoString()
 		{
 			if (HasAdditionalPhoto)
