@@ -50,10 +50,9 @@ namespace GoogleHashCode2019.Algorithms
 				var bestResult = new Tuple<int, Photo>(0, null);
 				bool foundAny = false;
 
-				for (var i = 0; i < Math.Min(10, outPics.Count) || !foundAny; i++)
+				for (var i = 1; i < Math.Min(10, outPics.Count) || (!foundAny && i < outPics.Count && i < 100); i++)
 				{
 					var comp = outPics.ElementAt(i);
-					var maxScore = last.GetMaxScore(comp);
 					var score = last.GetScore(comp);
 
 					if (score > bestResult.Item1)
@@ -61,13 +60,14 @@ namespace GoogleHashCode2019.Algorithms
 						bestResult = new Tuple<int, Photo>(score, comp);
 						foundAny = true;
 					}
-
-					if (score == maxScore)
-						break;
 				}
 
 				if (bestResult.Item2 == null)
+				{
+					Work.Photos.Add(outPics.First());
+					outPics.RemoveAt(0);
 					continue;
+				}
 
 				Work.Photos.Add(bestResult.Item2);
 				outPics.Remove(bestResult.Item2);
