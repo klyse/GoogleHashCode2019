@@ -9,6 +9,7 @@ namespace GoogleHashCode2019.Algorithms
 	{
 		private TagMatrix Tags;
 
+
         private void CombineVertical()
         {
             var verticalPhotos = Input.Photos.Where(c => c.Orientation == Orientation.Vertical).ToList();
@@ -23,7 +24,17 @@ namespace GoogleHashCode2019.Algorithms
             }
 
 
-            Input.Photos = combinedPhotos;
+            Work.Photos = combinedPhotos;
+        }
+
+        private void BuildOutput()
+        {
+            var orderedPhotos = Work.Photos.OrderByDescending(c => c.Tags.Count);
+
+            foreach (var orderedPhoto in orderedPhotos)
+            {
+                Output.Photos.Add(orderedPhoto);
+            }
         }
 
         protected override void Solve()
@@ -32,14 +43,8 @@ namespace GoogleHashCode2019.Algorithms
 
             CombineVertical();
 
+            BuildOutput();
 
-			var orderedPhotos = Input.Photos.OrderByDescending(c => c.Tags.Count);
-
-
-			foreach (var orderedPhoto in orderedPhotos)
-			{
-				Output.Photos.Add(orderedPhoto);
-			}
-		}
+        }
 	}
 }
