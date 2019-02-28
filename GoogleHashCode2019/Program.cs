@@ -8,11 +8,11 @@ namespace GoogleHashCode2019
 	{
 		static void Main()
 		{
-			var pizzaInput = new PizzaInput().Load(Path.Combine(EnvironmentConstants.InputPath, "a_example.in"));
+			var slideShowInput = new SlideShowInput().Load(Path.Combine(EnvironmentConstants.InputPath, "a_example.txt"));
 
-			var pizzaOutput = new PizzaSolver2().Execute(pizzaInput);
+			var slideShowOutput = new SlideShowSolver1().Execute(slideShowInput);
 
-			pizzaOutput.Save(Path.Combine(EnvironmentConstants.OutputPath, pizzaInput.FileName));
+			slideShowOutput.Save(Path.Combine(EnvironmentConstants.OutputPath, slideShowInput.FileName));
 		}
 	}
 }
