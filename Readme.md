@@ -48,11 +48,11 @@ The score can be checked in the unit test output...
 
 [Public Score Board](https://hashcodejudge.withgoogle.com/scoreboard)
 
-| Name                 | Rank | Description             |
-| -------------------- | ---- | ----------------------- |
-| Hub                  | 1    | Austria / GDG-Innsbruck |
-| Italy                | 20   | Rank filtered by country|
-| World                | 375  | Total rank (**OMG**) 😎 |
+| Name                 | Rank | Participants | Description             |
+| -------------------- | ---- | ------------ | ----------------------- |
+| Hub                  | 1    | 13           | Austria / GDG-Innsbruck |
+| Italy                | 20   | 356          | Rank filtered by country|
+| World                | 375  | 6671         | Total rank (**OMG**) 😎 |
 
 Team name: **DevOpsPirates**
 
