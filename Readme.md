@@ -1,4 +1,4 @@
-﻿# Google Hashcode Pizza Problem
+﻿# Google Hashcode 2019: Photo Slideshow
 
 ## Startup
 
@@ -46,11 +46,13 @@ The score can be checked in the unit test output...
 
 ### Score Board
 
-| Name                 | Rank | Description             |
-| -------------------- | ---- | ----------------------- |
-| Hub                  | 1    | Austria / GDG-Innsbruck |
-| Italy                | 20   | Rank filtered by country|
-| World                | 375  | Total rank **OMG**      |
+[Public Score Board](https://hashcodejudge.withgoogle.com/scoreboard)
+
+| Name                 | Rank | Participants | Description             |
+| -------------------- | ---- | ------------ | ----------------------- |
+| Hub                  | 1    | 13           | Austria / GDG-Innsbruck |
+| Italy                | 20   | 356          | Rank filtered by country|
+| World                | 375  | 6671         | Total rank (**OMG**) 😎 |
 
 Team name: **DevOpsPirates**
 
