@@ -25,54 +25,7 @@ namespace GoogleHashCode2019.Algorithms
             Work.Photos = combinedPhotos;
         }
 
-        private void BuildOutputGroup(List<Photo> photos)
-        {
-            var Tags = new TagMatrixV1(photos);
-            var Used = new HashSet<Photo>();
-
-            if (Output.Photos.Count == 0)
-            {
-                Output.Photos.Add(photos[0]);
-                Used.Add(photos[0]);
-            }
-
-            var currentPhoto = Output.Photos[Output.Photos.Count - 1];
-
-            while (Used.Count < photos.Count)
-            {
-                Photo bestMatch = null;
-                int bestScore = 0;
-                foreach (var tag in currentPhoto.Tags)
-                {
-                    var match = Tags.Tags[tag];
-                    foreach (var photo in match)
-                        if (!Used.Contains(photo))
-                        {
-                            var score = photo.GetScore(photo);
-                            if (score > bestScore)
-                            {
-                                bestScore = score;
-                                bestMatch = photo;
-                            }
-
-                            if (bestMatch != null)
-                                break;
-                        }
-                }
-                if (bestMatch == null)
-                    foreach (var photo in photos)
-                        if (!Used.Contains(photo))
-                        {
-                            bestMatch = photo;
-                            break;
-                        }
-                Output.Photos.Add(bestMatch);
-                Used.Add(bestMatch);
-                currentPhoto = bestMatch;
-            }
-        }
-
-        private void BuildOutput()
+		private void BuildOutput()
         {
             var Tags = new TagMatrixV1(Work.Photos);
             var Used = new HashSet<Photo>();
