@@ -13,28 +13,34 @@ Example: `C:\Projects\GoogleHashCode2019\Environment`
 ```
 .
 ├── input
-    ├── a_example.in
-    ├── b_small.in
-    ├── c_medium.in
-    └── d_big.in
+    ├── a_example.txt
+    ├── b_lovely_landscapes.txt
+    ├── c_memorable_moments.txt
+    ├── d_pet_pictures.txt
+    └── e_shiny_selfies.txt
 └── output
     └── Solver1
-        ├── a_example.out
-        ├── b_small.out
-        ├── c_medium.out
-        └── d_big.out
+		├── a_example.txt
+		├── b_lovely_landscapes.txt
+		├── c_memorable_moments.txt
+		├── d_pet_pictures.txt
+		└── e_shiny_selfies.txt
 ```
 
 
 ## Results
 
-| Case      | Points |
-|-----------|--------|
-| example   | 12     |
-| small     | 28     |
-| medium    | 45585  |
-| big       | 800264 |
-| **TOTAL** | 845889 |
+
+These are the best scores we archived using various different versions of our algorithms.
+
+| Case                  | Points |
+|-----------------------|--------|
+| a_example             | 2      |
+| b_lovely_landscapes   | 205563 |
+| c_memorable_moments   | 1255   |
+| d_pet_pictures        | 387529 |
+| e_shiny_selfies       | 292263 |
+| **TOTAL**             | 886612 |
 
 The score can be checked in the unit test output...
 
