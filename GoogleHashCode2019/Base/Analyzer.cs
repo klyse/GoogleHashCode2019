@@ -9,6 +9,18 @@ namespace GoogleHashCode2019.Base
         protected StringBuilder Result;
         protected TInput Input;
 
+        protected void Dump(string msg)
+        {
+            Result.AppendLine(msg);
+        }
+
+        protected void CountItem<T>(Dictionary<T, int> countStore, T item)
+        {
+            if (!countStore.TryGetValue(item, out var count))
+                count = 0;
+            countStore[item] = count + 1;
+        }
+
         public string Execute(TInput input)
         {
             Input = input;
