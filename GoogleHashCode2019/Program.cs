@@ -8,10 +8,10 @@ namespace GoogleHashCode2019
 	{
 		static void Main()
 		{
-			var slideShowInput = new SlideShowInput().Load(Path.Combine(EnvironmentConstants.InputPath, "e_shiny_selfies.txt"));
+			var slideShowInput = new SlideShowInput();
+            slideShowInput.Load(Path.Combine(EnvironmentConstants.InputPath, "e_shiny_selfies.txt"));
 
-            
-            var slideShowOutput = new SlideShowSolver1().Execute(slideShowInput);
+            var slideShowOutput = new SlideShowSolver2().Execute(slideShowInput);
 
 			slideShowOutput.Save(Path.Combine(EnvironmentConstants.OutputPath, slideShowInput.FileName));
 		}
