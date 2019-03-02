@@ -45,6 +45,15 @@ namespace GoogleHashCode2019
 
 			Console.WriteLine($"Best score: {slideShowOutput.TotalScore}");
 
+			Console.WriteLine();
+			Console.WriteLine("--------------------------");
+			Console.WriteLine("Problem: e_shiny_selfies:");
+
+			slideShowOutput = new SlideShowSolver4().ExecuteAndSave(Path.Combine(EnvironmentConstants.InputPath, "e_shiny_selfies.txt"), EnvironmentConstants.OutputPath, true);
+
+			Console.WriteLine($"Best score: {slideShowOutput.TotalScore}");
+			Console.WriteLine("(sorry original solution (292263 pt.) for this problem is not documented :/, this is as close as I got to reproduce it)");
+
 			Console.ReadLine();
 		}
 	}
