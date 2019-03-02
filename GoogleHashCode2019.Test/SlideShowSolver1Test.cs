@@ -16,13 +16,9 @@ namespace GoogleHashCode2019.Test
 		[TestCase("e_shiny_selfies.txt")]
 		public void SlideShowSolver1(string example)
 		{
-			var slideShowInput = new SlideShowInput().Load(Path.Combine(EnvironmentConstants.InputPath, example));
+            var output = new SlideShowSolver1().ExecuteAndSave(Path.Combine(EnvironmentConstants.InputPath, example), EnvironmentConstants.OutputPath, true);
 
-			var slideShowOutput = new SlideShowSolver1().Execute(slideShowInput);
-
-			slideShowOutput.Save(Path.Combine(EnvironmentConstants.OutputPath, "SlideShowSolver1", slideShowInput.FileName));
-
-			Console.WriteLine($"Total Score: {slideShowOutput.TotalScore}");
+            Console.WriteLine($"Total Score: {output.TotalScore}");
 
 			Assert.Pass();
 		}
