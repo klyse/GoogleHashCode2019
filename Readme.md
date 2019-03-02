@@ -44,6 +44,18 @@ These are the best scores we archived using various different versions of our al
 
 The score can be checked in the unit test output...
 
+### Score Board
+
+| Name                 | Rank | Description             |
+| -------------------- | ---- | ----------------------- |
+| Hub                  | 1    | Austria / GDG-Innsbruck |
+| Italy                | 20   | Rank filtered by country|
+| World                | 375  | Total rank              |
+
+Team name: **DevOpsPirates**
+
+\#DevOpsPiratesRule
+
 ## Authors
 VolkmarR: [@VolkmarR](https://github.com/VolkmarR/)
 
