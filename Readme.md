@@ -20,11 +20,11 @@ Example: `C:\Projects\GoogleHashCode2019\Environment`
     └── e_shiny_selfies.txt
 └── output
     └── Solver1
-		├── a_example.txt
-		├── b_lovely_landscapes.txt
-		├── c_memorable_moments.txt
-		├── d_pet_pictures.txt
-		└── e_shiny_selfies.txt
+		├── a_example.out
+		├── b_lovely_landscapes.out
+		├── c_memorable_moments.out
+		├── d_pet_pictures.out
+		└── e_shiny_selfies.out
 ```
 
 
@@ -33,14 +33,14 @@ Example: `C:\Projects\GoogleHashCode2019\Environment`
 
 These are the best scores we archived using various different versions of our algorithms.
 
-| Case                  | Points |
-|-----------------------|--------|
-| a_example             | 2      |
-| b_lovely_landscapes   | 205563 |
-| c_memorable_moments   | 1255   |
-| d_pet_pictures        | 387529 |
-| e_shiny_selfies       | 292263 |
-| **TOTAL**             | 886612 |
+| Case                  |  Points  |
+|-----------------------|----------|
+| a_example             |  2       |
+| b_lovely_landscapes   |  205563  |
+| c_memorable_moments   |  1255    |
+| d_pet_pictures        |  387529  |
+| e_shiny_selfies       |  292263  |
+| **TOTAL**             |**886612**|
 
 The score can be checked in the unit test output...
 
@@ -50,7 +50,7 @@ The score can be checked in the unit test output...
 | -------------------- | ---- | ----------------------- |
 | Hub                  | 1    | Austria / GDG-Innsbruck |
 | Italy                | 20   | Rank filtered by country|
-| World                | 375  | Total rank              |
+| World                | 375  | Total rank **OMG**      |
 
 Team name: **DevOpsPirates**
 
