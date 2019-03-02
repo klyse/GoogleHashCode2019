@@ -11,7 +11,9 @@ namespace GoogleHashCode2019.Algorithms
     {
         public int HorizontalCount;
         public int VertivalCount;
-        public Dictionary<String, int> TagCount = new Dictionary<string, int>();
+        public CountStore<String> TagCount = new CountStore<string>();
+        public CountStore<int> TagListLength = new CountStore<int>();
+        public CountStore<String> TagUnique = new CountStore<string>();
 
         protected override void Analyze()
         {
@@ -20,11 +22,13 @@ namespace GoogleHashCode2019.Algorithms
 
             Dump($"PhotoCount Horizontal {HorizontalCount}, Vertical {VertivalCount}, Total {Input.Photos.Count}");
 
-            CountItems(TagCount, Input.Photos.SelectMany(q => q.Tags));
+            TagCount.Add(Input.Photos.SelectMany(q => q.Tags));
 
-            Dump($"Tag Count {TagCount.Count}");
+            Dump("Tags", TagCount);
 
-            Dump("Counts per Tag", TagCount);
+            TagListLength.Add(Input.Photos.Select(q => q.Tags.Count));
+
+            Dump("Length of TagList", TagListLength);
         }
     }
 }
