@@ -106,11 +106,11 @@ namespace GoogleHashCode2019.Model
 		}
 	}
 
-	public class SlideShowInput : Input<SlideShowInput>
+	public class SlideShowInput : Input
 	{
 		public List<Photo> Photos { get; set; } = new List<Photo>();
 
-		public override SlideShowInput Parse(string[] input)
+		protected override void Parse(string[] input)
 		{
 			var index = 0;
 			foreach (var inputLine in input.Skip(1))
@@ -119,8 +119,6 @@ namespace GoogleHashCode2019.Model
 				Photos.Add(photo);
 				index++;
 			}
-
-			return this;
 		}
 	}
 }

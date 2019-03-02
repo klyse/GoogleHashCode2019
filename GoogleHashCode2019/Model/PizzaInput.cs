@@ -4,7 +4,7 @@ using NeoMatrix;
 
 namespace GoogleHashCode2019.Model
 {
-	public class PizzaInput : Input<PizzaInput>
+	public class PizzaInput : Input
 	{
 		public enum CellType
 		{
@@ -17,7 +17,7 @@ namespace GoogleHashCode2019.Model
 
 		public Matrix<CellType> Matrix { get; set; }
 
-		public override PizzaInput Parse(string[] input)
+		protected override void Parse(string[] input)
 		{
 			var descriptiveProps = ParseParamLineInt(input[0]);
 
@@ -45,8 +45,6 @@ namespace GoogleHashCode2019.Model
 
 			PizzaOutput.Slice.TotalTomatoes = Matrix.GetFlat().Count(c => c == CellType.Tomato);
 			PizzaOutput.Slice.TotalMushrooms = Matrix.TotalCount - PizzaOutput.Slice.TotalTomatoes;
-
-			return this;
 		}
 	}
 }
