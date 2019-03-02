@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using GoogleHashCode2019.Algorithms;
 using GoogleHashCode2019.Model;
 
@@ -8,12 +9,43 @@ namespace GoogleHashCode2019
 	{
 		static void Main()
 		{
-			var slideShowInput = new SlideShowInput();
-            slideShowInput.Load(Path.Combine(EnvironmentConstants.InputPath, "e_shiny_selfies.txt"));
+			Console.WriteLine("Google HasCode 2019");
 
-            var slideShowOutput = new SlideShowSolver2().Execute(slideShowInput);
+			Console.WriteLine("by: VolkmarR & Klyse");
 
-			slideShowOutput.Save(Path.Combine(EnvironmentConstants.OutputPath, slideShowInput.FileName));
+			Console.WriteLine();
+			Console.WriteLine("--------------------------");
+			Console.WriteLine("Problem: a_example:");
+
+			var slideShowOutput = new SlideShowSolver1().ExecuteAndSave(Path.Combine(EnvironmentConstants.InputPath, "a_example.txt"), EnvironmentConstants.OutputPath, true);
+
+			Console.WriteLine($"Best score: {slideShowOutput.TotalScore}");
+
+			Console.WriteLine();
+			Console.WriteLine("--------------------------");
+			Console.WriteLine("Problem: b_lovely_landscapes:");
+
+			slideShowOutput = new SlideShowSolver3().ExecuteAndSave(Path.Combine(EnvironmentConstants.InputPath, "b_lovely_landscapes.txt"), EnvironmentConstants.OutputPath, true);
+
+			Console.WriteLine($"Best score: {slideShowOutput.TotalScore}");
+
+			Console.WriteLine();
+			Console.WriteLine("--------------------------");
+			Console.WriteLine("Problem: c_memorable_moments:");
+
+			slideShowOutput = new SlideShowSolver1().ExecuteAndSave(Path.Combine(EnvironmentConstants.InputPath, "c_memorable_moments.txt"), EnvironmentConstants.OutputPath, true);
+
+			Console.WriteLine($"Best score: {slideShowOutput.TotalScore}");
+
+			Console.WriteLine();
+			Console.WriteLine("--------------------------");
+			Console.WriteLine("Problem: d_pet_pictures:");
+
+			slideShowOutput = new SlideShowSolver1().ExecuteAndSave(Path.Combine(EnvironmentConstants.InputPath, "d_pet_pictures.txt"), EnvironmentConstants.OutputPath, true);
+
+			Console.WriteLine($"Best score: {slideShowOutput.TotalScore}");
+
+			Console.ReadLine();
 		}
 	}
 }
