@@ -32,7 +32,6 @@ namespace GoogleHashCode2019.Model
 
 				return allTags;
 			}
-			private set => _tags = value;
 		}
 
 		public Photo AdditionalPhoto { get; set; }

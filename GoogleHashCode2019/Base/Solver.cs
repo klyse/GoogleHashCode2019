@@ -28,7 +28,7 @@ namespace GoogleHashCode2019.Base
             var output = Execute(input);
             var fileName = outputPath;
             if (createSolverDir)
-                fileName = Path.Combine(fileName, this.GetType().Name);
+                fileName = Path.Combine(fileName, GetType().Name);
             fileName = Path.Combine(fileName, Input.FileName);
 
             output.Save(fileName);
