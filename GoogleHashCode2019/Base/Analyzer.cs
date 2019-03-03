@@ -47,6 +47,60 @@ namespace GoogleHashCode2019.Base
             }
         }
 
+        public class DictionaryHashSetValue<TKey, TValue> : IEnumerable<KeyValuePair<TKey, HashSet<TValue>>>
+        {
+            private readonly Dictionary<TKey, HashSet<TValue>> Data = new Dictionary<TKey, HashSet<TValue>>();
+
+            public int Count => Data.Count;
+
+            public void Add(TKey key, TValue value)
+            {
+                if (!Data.TryGetValue(key, out var hashSet))
+                {
+                    hashSet = new HashSet<TValue>();
+                    Data.Add(key, hashSet);
+                }
+                hashSet.Add(value);
+            }
+
+            public void Add(TKey key, IEnumerable<TValue> values)
+            {
+                if (!Data.TryGetValue(key, out var hashSet))
+                {
+                    hashSet = new HashSet<TValue>();
+                    Data.Add(key, hashSet);
+                }
+                foreach (var item in values)
+                    hashSet.Add(item);
+            }
+
+            public void Add(IEnumerable<KeyValuePair<TKey, TValue>> keyValueItems)
+            {
+                foreach (var item in keyValueItems)
+                    Add(item.Key, item.Value);
+            }
+
+            public KeyValuePair<TKey, TValue> Pair(TKey key, TValue value)
+            {
+                return new KeyValuePair<TKey, TValue>(key, value);
+            }
+
+            public IEnumerator<KeyValuePair<TKey, HashSet<TValue>>> GetEnumerator()
+            {
+                return Data.GetEnumerator();
+            }
+
+            IEnumerator IEnumerable.GetEnumerator()
+            {
+                return Data.GetEnumerator();
+            }
+
+            public HashSet<TValue> this[TKey Item]
+            {
+                get { return Data[Item]; }
+            }
+        }
+
         protected StringBuilder Result;
         protected StringBuilder ResultDetail;
         protected TInput Input;
@@ -77,19 +131,40 @@ namespace GoogleHashCode2019.Base
                 Dump(msg, dataSorted, true);
             }
             else
-                Dump("", dataSorted.Take(20), false);
+                Dump("", dataSorted, false);
         }
 
-        protected void Dump<K, V>(string msg, IEnumerable<KeyValuePair<K, V>> data, bool toDetail)
+        protected void Dump<K, V>(string msg, DictionaryHashSetValue<K, V> data)
+        {
+            Dump(msg, false);
+            Result.
+                AppendLine($"- Number of Items: {data.Count}");
+
+            Func<HashSet<V>, String> valueToString = (q) => string.Join(", ", q);
+
+            var dataSorted = data.OrderByDescending(q => q.Value.Count).ToList();
+            if (dataSorted.Count > 20)
+            {
+                Dump("Top 20 Elements", dataSorted.Take(20), false, valueToString);
+                Dump(msg, dataSorted, true, valueToString);
+            }
+            else
+                Dump("", dataSorted, false, valueToString);
+        }
+
+        protected void Dump<K, V>(string msg, IEnumerable<KeyValuePair<K, V>> data, bool toDetail = false, Func<V, string> fnValueToString = null)
         {
             var index = 0;
             var result = toDetail ? ResultDetail : Result;
+
+            if (fnValueToString == null)
+                fnValueToString = (q) => q.ToString();
 
             if (!string.IsNullOrEmpty(msg))
                 result.AppendLine(msg);
 
             foreach (var item in data)
-                result.AppendLine($"{++index}) {item.Key} = {item.Value}");
+                result.AppendLine($"{++index}) {item.Key} = {fnValueToString(item.Value)}");
 
             result.AppendLine();
         }
