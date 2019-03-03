@@ -103,7 +103,12 @@ namespace GoogleHashCode2019.Model
 
 			return $"{Id}";
 		}
-	}
+
+        public override string ToString()
+        {
+            return GetPhotoString();
+        }
+    }
 
 	public class SlideShowInput : Input
 	{
