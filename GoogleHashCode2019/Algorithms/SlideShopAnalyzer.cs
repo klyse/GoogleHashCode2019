@@ -14,6 +14,7 @@ namespace GoogleHashCode2019.Algorithms
         public CountStore<String> TagCount = new CountStore<string>();
         public CountStore<int> TagListLength = new CountStore<int>();
         public CountStore<String> TagUnique = new CountStore<string>();
+        public DictionaryHashSetValue<String, Photo> TagPhotos = new DictionaryHashSetValue<string, Photo>();
 
         protected override void Analyze()
         {
@@ -29,6 +30,10 @@ namespace GoogleHashCode2019.Algorithms
             TagListLength.Add(Input.Photos.Select(q => q.Tags.Count));
 
             Dump("Length of TagList", TagListLength);
+
+            TagPhotos.Add(Input.Photos.SelectMany(q => q.Tags, (photo, tag) => TagPhotos.Pair(tag, photo)));
+
+            Dump("Photos per Tag", TagPhotos);
         }
     }
 }
