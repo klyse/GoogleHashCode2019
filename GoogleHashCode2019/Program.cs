@@ -9,7 +9,7 @@ namespace GoogleHashCode2019
 	{
 		static void Main()
 		{
-			Console.WriteLine("Google HasCode 2019");
+			Console.WriteLine("Google HashCode 2019");
 
 			Console.WriteLine("by: VolkmarR & Klyse");
 
